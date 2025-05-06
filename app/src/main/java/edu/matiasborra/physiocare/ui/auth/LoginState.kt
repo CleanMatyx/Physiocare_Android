@@ -1,6 +1,6 @@
 package edu.matiasborra.physiocare.ui.auth
 
-import edu.matiasborra.physiocare.data.models.auth.LoginResponse
+import edu.matiasborra.physiocare.data.model.auth.LoginResponse
 
 /**
  * Estado de la autenticación del usuario.
