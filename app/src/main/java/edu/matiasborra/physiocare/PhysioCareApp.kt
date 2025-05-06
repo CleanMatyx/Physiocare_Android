@@ -4,6 +4,7 @@ import android.app.Application
 import edu.matiasborra.physiocare.utils.SessionManager
 import edu.matiasborra.physiocare.data.remote.PhysioCareApi
 import edu.matiasborra.physiocare.data.repository.Repository
+import edu.matiasborra.physiocare.domain.usecase.LoginUseCase
 import edu.matiasborra.physiocare.utils.dataStore
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,6 +19,9 @@ class PhysioCareApp : Application() {
             private set
 
         lateinit var repository: Repository
+            private set
+
+        lateinit var loginUseCase: LoginUseCase
             private set
     }
 
@@ -35,6 +39,8 @@ class PhysioCareApp : Application() {
         api = retrofit.create(PhysioCareApi::class.java)
 
         // Inicializa el repositorio
-        repository = Repository(api, sessionManager)
+        //repository = Repository(api, sessionManager)
+
+        loginUseCase = LoginUseCase(repository)
     }
 }
